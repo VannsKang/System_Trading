@@ -32,6 +32,28 @@ def get_financial_statements(code):
 
     return dividend_dict
 
+def get_3year_treasury():
+    url = "http://www.index.go.kr/strata/jsp/showStblGams3.jsp?stts_cd=288401&amp;idx_cd=2884&amp;freq=Y&amp;period=1998:2016"
+    html = requests.get(url, verify=False).text
+    soup = BeautifulSoup(html, 'html5lib')
+    td_data = soup.select("tr td")
+
+    treasury_3year = {}
+    start_year = 1998
+
+    for x in td_data:
+        treasury_3year[start_year] = x.text
+        start_year +=1
+
+    print(treasury_3year)
+    return treasury_3year
+
+    # print(type(td_data))
+    # print(td_data[0].text)
+    # print(td_data[1].text)
+    # print(td_data[2].text)
+
 if __name__ == "__main__":
-    dividend_dict = get_financial_statements("035720")
-    print(dividend_dict)
+    # dividend_dict = get_financial_statements("035720")
+    get_3year_treasury()
+    # print(dividend_dict)
