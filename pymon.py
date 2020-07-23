@@ -65,7 +65,7 @@ class PyMon:
         num = len(self.kosdaq_codes)
 
         for cnt in range(0, num, 99):
-            time.sleep(10)
+            time.sleep(100)
             cnt_end = cnt + 99
             if cnt_end >= num:
                 cnt_end = num+1
