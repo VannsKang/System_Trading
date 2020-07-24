@@ -65,11 +65,12 @@ class PyMon:
         num = len(self.kosdaq_codes)
 
         for cnt in range(0, num, 99):
-            # time.sleep(30)
+            time.sleep(30)
             cnt_end = cnt + 99
+            # print("cnt_end", cnt_end)
             if cnt_end >= 1000:
                 cnt_end = 1000
-                # print("cnt_end", cnt_end)
+                print("cnt_end", cnt_end)
             # elif cnt > 999:
             #     print("break")
             #     break
